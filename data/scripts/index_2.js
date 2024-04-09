@@ -1,6 +1,6 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 
-const API_URL = 'https://nbaapi.com/graphql/';
+const API_URL = "https://nbaapi.com/graphql/";
 
 const query = `
 query MyQuery {
@@ -13,9 +13,9 @@ query MyQuery {
 }`;
 
 fetch(API_URL, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ query }),
 })
-  .then(res => res.json())
-  .then(data => console.log(JSON.stringify(data)));
+  .then((res) => res.json())
+  .then((data) => console.log(JSON.stringify(data)));
