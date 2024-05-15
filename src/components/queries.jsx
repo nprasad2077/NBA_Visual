@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_PLAYER_TOTALS = gql`
-  query GetPlayerTotals($team: String!, $limit: Int, $id: Int) {
-    playerTotals(team: $team, limit: $limit, id: $id) {
+  query GetPlayerTotals($team: String, $limit: Int, $id: Int, $ordering: String, $playerId: String, $name: String, $position: String, $season: Int, $first: Int) {
+    playerTotals(team: $team, limit: $limit, id: $id, ordering: $ordering, playerId: $playerId, name: $name, position: $position, season: $season, first: $first) {
       id
       playerId
       playerName
