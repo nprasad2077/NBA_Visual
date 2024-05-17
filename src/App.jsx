@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import  getData  from '../components/scripts/index_3.jsx'
+import ReactVirtualizedTable from './components/ReactVirtualizedTable.jsx'
 import PlayerStats from './components/playerTotals.jsx'
 
 function App() {
@@ -26,10 +27,10 @@ function App() {
   return (
     <>
     <div>
-      <header>
-        <h1>NBA Data</h1>
+      <header class='mb-10'>
+        <h1 class='text-6xl font-semibold'>NBA Data</h1>
       </header>
-      <PlayerStats />
+      <ReactVirtualizedTable />
     </div>
     </>
   )
