@@ -13,6 +13,8 @@ export const fetchQuery = async (userInput) => {
       body: new URLSearchParams({ user_input: userInput }).toString(), // Match body format
     });
 
+    console.log(userInput);
+
     const data = await response.json();
     if (!data.graphql_query) {
       throw new Error('No query returned from the backend');
@@ -30,7 +32,7 @@ export const fetchQuery = async (userInput) => {
     });
 
     // Log the result of the query
-    console.log('Query Result:', result.data);
+    // console.log('Query Result:', result.data);
 
     // Return the result data
     return result.data;
@@ -48,7 +50,7 @@ export const fetchQuery = async (userInput) => {
   }
 };
 
-const test = 'Show me the top 200 players by box in the 1998 playoffs. Only return fields player name, team, season, and box';
+const test = 'Show me the top 5 players by points in the 2024 playoffs. Only return fields player name, team, season, points, and total rebounds.';
 
 const testFetchQuery = async () => {
   try {
