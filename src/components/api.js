@@ -1,5 +1,5 @@
-import pkg from '@apollo/client';
-const { gql } = pkg;
+import {gql}from '@apollo/client';
+
 import  client  from "./apolloClient.js";
 
 console.log("client:", client);
@@ -57,7 +57,7 @@ export const fetchQuery = async (userInput) => {
 };
 
 const test =
-  "Show me the top 1 player by points in the 2024 playoffs. Only return fields player name, team, season, points, and total rebounds.";
+  "Show me the top 3 player by points in the 2020 playoffs. Only return fields player name, team, season, points, and total rebounds.";
 
 const testFetchQuery = async () => {
   try {
