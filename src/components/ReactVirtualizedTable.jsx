@@ -65,8 +65,10 @@ function rowContent(_index, row, columns) {
 export default function ReactVirtualizedTable() {
   const [data, setData] = useState([]);
   const [columns, setColumns] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async (query) => {
+    setLoading(true);
     try {
       const result = await fetchQuery(query);
       const key = Object.keys(result)[0];
@@ -85,6 +87,8 @@ export default function ReactVirtualizedTable() {
       setData(players);
     } catch (error) {
       console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -92,15 +96,19 @@ export default function ReactVirtualizedTable() {
     <div>
       <div>
         <Paper style={{ height: 600, width: 1200 }}>
-          <TableVirtuoso
-            data={data}
-            components={VirtuosoTableComponents}
-            fixedHeaderContent={() => fixedHeaderContent(columns)}
-            itemContent={(index, row) => rowContent(index, row, columns)}
-          />
+          {loading ? (
+            <span className="loading loading-ring loading-lg"></span>
+          ) : (
+            <TableVirtuoso
+              data={data}
+              components={VirtuosoTableComponents}
+              fixedHeaderContent={() => fixedHeaderContent(columns)}
+              itemContent={(index, row) => rowContent(index, row, columns)}
+            />
+          )}
         </Paper>
       </div>
-      <div class='mt-6'>
+      <div class="mt-6">
         <InputForm onSubmit={fetchData} />
       </div>
     </div>
