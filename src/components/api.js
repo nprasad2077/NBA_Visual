@@ -1,13 +1,13 @@
-import {gql}from '@apollo/client';
+import {gql} from '@apollo/client';
 
 import  client  from "./apolloClient.js";
 
-console.log("client:", client);
+//console.log("client:", client);
 
 export const fetchQuery = async (userInput) => {
   try {
     // Fetch the GraphQL query from the backend
-    const response = await fetch("http://127.0.0.1:8000/generate_query/", {
+    const response = await fetch("http://127.0.0.1:8000/llama/", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded", // Match content type
@@ -18,13 +18,14 @@ export const fetchQuery = async (userInput) => {
     console.log(userInput);
 
     const data = await response.json();
+    //console.log(data)
     if (!data.graphql_query) {
       throw new Error("No query returned from the backend");
     }
 
     // Strip backticks and other unnecessary characters
     const cleanedQuery = data.graphql_query
-      .replace(/```graphql/g, "")
+      .replace(/```query/g, "")
       .replace(/```/g, "")
       .trim();
 
