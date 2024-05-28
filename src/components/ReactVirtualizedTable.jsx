@@ -30,7 +30,7 @@ const VirtuosoTableComponents = {
 function fixedHeaderContent(columns) {
   return (
     <TableRow>
-      {columns.map((column) => (
+      {columns.slice(1).map((column) => (
         <TableCell
           key={column.dataKey}
           variant="head"
@@ -50,7 +50,7 @@ function fixedHeaderContent(columns) {
 function rowContent(_index, row, columns) {
   return (
     <React.Fragment>
-      {columns.map((column) => (
+      {columns.slice(1).map((column) => (
         <TableCell
           key={column.dataKey}
           align={column.numeric || false ? "right" : "left"}
