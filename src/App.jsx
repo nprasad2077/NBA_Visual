@@ -5,6 +5,7 @@ import './App.css'
 import  getData  from '../components/scripts/index_3.jsx'
 import ReactVirtualizedTable from './components/ReactVirtualizedTable.jsx'
 import PlayerStats from './components/playerTotals.jsx'
+import InputForm from './components/InputForm.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
