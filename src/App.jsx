@@ -1,40 +1,30 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import  getData  from '../components/scripts/index_3.jsx'
-import ReactVirtualizedTable from './components/ReactVirtualizedTable.jsx'
-import PlayerStats from './components/playerTotals.jsx'
-import InputForm from './components/InputForm.jsx'
+import { useState, useEffect } from "react";
+import ReactVirtualizedTable from "./components/ReactVirtualizedTable.jsx";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home.jsx";
+import Navigation from "./components/Navigation.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const query = `
-  query MyQuery {
-    team(teamAbbr: "HOU", limit: 10) {
-      id
-      teamName
-      season
-      wins
-    }
-  }`;
-
-  useEffect(() => {
-    getData(query).then(data => console.log(data)).catch(e => console.error(`Error is: ${e}`));
-  }, []);
-
-
   return (
     <>
-    <div>
-      <header class='mb-10'>
-        <h1 class='text-6xl font-semibold'>NBA Data</h1>
-      </header>
-      <ReactVirtualizedTable />
-    </div>
+      <div class='flex flex-col items-center'>
+        <header class="text-center mb-10">
+          <h1 class="text-6xl font-semibold">NBA Data</h1>
+        </header>
+      </div>
+      <div class="flex flex-col items-center w-full">
+        <BrowserRouter>
+          <Navigation />
+          <div class='flex flex-col items-center justify-center w-full mt-4'>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/reactvtable" element={<ReactVirtualizedTable />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

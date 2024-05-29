@@ -93,7 +93,7 @@ export default function ReactVirtualizedTable() {
   };
 
   return (
-    <div>
+    <div class='flex flex-col items-center w-full'>
       <div>
         <Paper style={{ height: 600, width: 1200 }}>
           {loading ? (
