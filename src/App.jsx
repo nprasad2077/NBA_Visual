@@ -12,7 +12,7 @@ function App() {
           <h1 class="text-6xl font-semibold">NBA Data</h1>
         </header>
       </div>
-      <div class="flex flex-col items-center w-full">
+      <div class="flex flex-col items-center w-full" data-theme='black'>
         <BrowserRouter>
           <Navigation />
           <div class='flex flex-col items-center justify-center w-full mt-4'>
