@@ -15,7 +15,7 @@ function InputForm({onSubmit}) {
 
 
   return (
-    <div>
+    <div class='flex flex-row space-x-4'>
         {submitted && <div className='mb-6'>{query}</div>}
         <InputBox query={query} setQuery={setQuery} />
         <CoolButton onSubmit={handleSubmit} />
