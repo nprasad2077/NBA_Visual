@@ -3,22 +3,25 @@ import ReactVirtualizedTable from "./components/ReactVirtualizedTable.jsx";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import Navigation from "./components/Navigation.jsx";
+import MaterialTable from "../screens/MaterialTable.jsx";
+import ReactMaterialUITable from "../screens/ReactMaterialUITable.jsx";
 
 function App() {
   return (
     <>
-      <div class='flex flex-col items-center'>
+      <div class="flex flex-col items-center">
         <header class="text-center mb-10">
           <h1 class="text-6xl font-semibold">NBA Data</h1>
         </header>
       </div>
-      <div class="flex flex-col items-center w-full" data-theme='black'>
+      <div class="flex flex-col items-center w-full" data-theme="black">
         <BrowserRouter>
           <Navigation />
-          <div class='flex flex-col items-center justify-center w-full mt-4'>
+          <div class="flex flex-col items-center justify-center w-full mt-4">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/reactvtable" element={<ReactVirtualizedTable />} />
+              <Route path='/materialtable' element={<ReactMaterialUITable />} />
             </Routes>
           </div>
         </BrowserRouter>

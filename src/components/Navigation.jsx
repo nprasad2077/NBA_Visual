@@ -12,6 +12,9 @@ function Navigation() {
           <li>
             <Link to="/reactvtable">React_V_Table</Link>
           </li>
+          <li>
+            <Link to="/materialtable">Material Table</Link>
+          </li>
           {/* <li>
             <details>
               <summary>Parent</summary>
