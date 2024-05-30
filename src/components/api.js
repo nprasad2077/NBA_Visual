@@ -68,4 +68,4 @@ const testFetchQuery = async () => {
   }
 };
 
-testFetchQuery();
+// testFetchQuery();
